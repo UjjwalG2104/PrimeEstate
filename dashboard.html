@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | PrimeEstate</title>
+  <meta name="description" content="PrimeEstate dashboard mock with listings and inquiries.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23e3b341' d='M8 30L32 12l24 18v22a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V30z'/%3E%3Cpath fill='%230b1220' d='M24 52V38h16v14z'/%3E%3C/svg%3E'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .dash { display:grid; grid-template-columns: 220px 1fr; gap:1rem; }
+    .dash-aside { background: var(--elev); border:1px solid rgba(255,255,255,0.06); border-radius:.9rem; padding:.8rem; height: fit-content; position: sticky; top: 78px; }
+    .dash-aside a { display:flex; align-items:center; gap:.6rem; padding:.55rem .7rem; text-decoration:none; color:var(--text); border-radius:.6rem; opacity:.9; }
+    .dash-aside a:hover { background: rgba(255,255,255,0.06); opacity:1; }
+    .dash-main { display:grid; gap:1rem; }
+    .panel { background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius:.9rem; padding:.9rem; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { text-align:left; padding:.6rem .5rem; border-bottom:1px solid rgba(255,255,255,0.06); }
+    th { color:var(--muted); font-weight:600; }
+    .status { display:inline-block; padding:.2rem .5rem; border-radius:.5rem; font-size:.85rem; border:1px solid rgba(255,255,255,0.12); }
+    .status.active { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.35); color:#86efac; }
+    .status.draft { background: rgba(234,179,8,0.08); border-color: rgba(234,179,8,0.35); color:#fde68a; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span>Prime</span>Estate</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <span id="authSlot"></span>
+        <a href="dashboard.html" class="btn btn-sm btn-ghost active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container dash">
+      <aside class="dash-aside">
+        <a href="#"><i class="fa-solid fa-house"></i> Overview</a>
+        <a href="#"><i class="fa-solid fa-list"></i> Listings</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i> Inquiries</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      </aside>
+      <div class="dash-main">
+        <div class="panel">
+          <div class="section-head"><h2>Listings</h2><button class="btn btn-sm"><i class="fa-solid fa-plus"></i> New</button></div>
+          <div style="overflow:auto;">
+            <table id="dashboardTable">
+              <thead>
+                <tr><th>Title</th><th>City</th><th>Price</th><th>Status</th><th>Actions</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Modern Family House</td><td>San Francisco</td><td>₹12,50,000</td><td><span class="status active">Active</span></td><td><button class="btn btn-sm" data-edit>Edit</button> <button class="btn btn-sm btn-ghost" data-del>Archive</button></td></tr>
+                <tr><td>Luxury Downtown Condo</td><td>New York</td><td>₹9,80,000</td><td><span class="status active">Active</span></td><td><button class="btn btn-sm" data-edit>Edit</button> <button class="btn btn-sm btn-ghost" data-del>Archive</button></td></tr>
+                <tr><td>Beachfront Villa</td><td>Miami</td><td>₹24,50,000</td><td><span class="status draft">Draft</span></td><td><button class="btn btn-sm" data-edit>Edit</button> <button class="btn btn-sm btn-ghost" data-del>Archive</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-head"><h2>Recent Inquiries</h2><a class="btn btn-sm btn-ghost" href="properties.html">View Properties</a></div>
+          <ul class="footer-links" style="display:grid; gap:.6rem;">
+            <li><i class="fa-regular fa-user"></i> Alice • Condo in NY • 2h ago</li>
+            <li><i class="fa-regular fa-user"></i> Mark • House in SF • 1d ago</li>
+            <li><i class="fa-regular fa-user"></i> Sara • Villa in Miami • 3d ago</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo"><span>Prime</span>Estate</a>
+        <p>Premium real estate marketplace helping you buy, sell, and rent smarter.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="properties.html">All Properties</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@primeestate.com</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email" required>
+          <button class="btn btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> PrimeEstate. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
+
+

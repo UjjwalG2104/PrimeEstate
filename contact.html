@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | PrimeEstate</title>
+  <meta name="description" content="Contact PrimeEstate for property inquiries, listings, and partnerships.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23e3b341' d='M8 30L32 12l24 18v22a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V30z'/%3E%3Cpath fill='%230b1220' d='M24 52V38h16v14z'/%3E%3C/svg%3E'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span>Prime</span>Estate</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <span id="authSlot"></span>
+        <a href="dashboard.html" class="btn btn-sm btn-ghost"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container two-col">
+        <div class="two-col-text">
+          <h2>Get in Touch</h2>
+          <p style="color:var(--muted)">Questions about a property or ready to list with us? Send a message and our team will reach out shortly.</p>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> Response within 24 hours</li>
+            <li><i class="fa-solid fa-check"></i> Personalized guidance</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="tel:+15551234567"><i class="fa-solid fa-phone"></i> Call Us</a>
+            <a class="btn btn-ghost" href="mailto:hello@primeestate.com"><i class="fa-solid fa-envelope"></i> Email</a>
+          </div>
+        </div>
+        <div class="two-col-media">
+          <div class="media-card">
+            <div class="media-caption">Office: 123 Market St, San Francisco</div>
+            <iframe title="Map placeholder" style="width:100%; height:280px; border:0; filter: grayscale(1) contrast(1.05) opacity(.9);" src="https://maps.google.com/maps?q=San%20Francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 style="margin-bottom:.8rem;">Send a Message</h2>
+        <form class="visit-form" id="contactForm" style="display:grid; grid-template-columns: 1fr 1fr; gap:.6rem; background: var(--elev); padding: .9rem; border-radius:.9rem; border:1px solid rgba(255,255,255,0.06);">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="subject" placeholder="Subject" style="grid-column: 1 / -1;" required>
+          <textarea name="message" placeholder="Message" rows="5" style="grid-column: 1 / -1; padding:.7rem .9rem; border-radius:.6rem; border:1px solid rgba(255,255,255,0.12); background: rgba(10,16,28,0.8); color: var(--text);"></textarea>
+          <div class="cta-row" style="grid-column: 1 / -1;">
+            <button class="btn" type="submit">Send</button>
+            <button class="btn btn-ghost" type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo"><span>Prime</span>Estate</a>
+        <p>Premium real estate marketplace helping you buy, sell, and rent smarter.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="properties.html">All Properties</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@primeestate.com</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email" required>
+          <button class="btn btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> PrimeEstate. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e){ e.preventDefault(); window.showToast && window.showToast('Message sent!', 'success'); this.reset(); });
+  </script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
+
+

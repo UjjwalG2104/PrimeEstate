@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeEstate | Premium Real Estate</title>
+    <meta name="description" content="Discover premium real estate listings across India. Verified properties, transparent pricing, and trusted agents.">
+    <meta property="og:title" content="PrimeEstate">
+    <meta property="og:description" content="Discover premium real estate listings across India.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23e3b341' d='M8 30L32 12l24 18v22a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V30z'/%3E%3Cpath fill='%230b1220' d='M24 52V38h16v14z'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="index.html" class="logo"><span>Prime</span>Estate</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="properties.html">Properties</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="btn btn-sm btn-ghost" id="btnFavorites"><i class="fa-regular fa-heart"></i> Favorites <span class="fav-badge" id="favCount">0</span></a>
+                <span id="authSlot"></span>
+                <a href="dashboard.html" class="btn btn-sm btn-ghost"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-blob b1"></div>
+            <div class="hero-blob b2"></div>
+            <div class="container hero-content">
+                <div class="badge-row">
+                    <span class="badge"><i class="fa-solid fa-shield"></i> Verified Listings</span>
+                    <span class="badge"><i class="fa-solid fa-indian-rupee-sign"></i> Transparent Pricing</span>
+                </div>
+                <h1>Find Your Next <span class="accent">Home</span></h1>
+                <p>Discover premium properties with trusted agents and exclusive listings.</p>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-text">4.9/5 from 2.5k+ reviews</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="properties.html" class="btn btn-lg"><i class="fa-solid fa-magnifying-glass"></i> Browse Listings</a>
+                    <a href="#featured" class="btn btn-lg btn-ghost"><i class="fa-regular fa-star"></i> Featured</a>
+                </div>
+                <form class="quick-search" id="quickSearch">
+                    <input type="text" placeholder="City, neighborhood, or ZIP" name="q">
+                    <select name="type">
+                        <option value="any">Any Type</option>
+                        <option>House</option>
+                        <option>Apartment</option>
+                        <option>Villa</option>
+                        <option>Condo</option>
+                    </select>
+                    <select name="price">
+                        <option value="any">Any Price</option>
+                        <option value="0-200000">Under $200k</option>
+                        <option value="200000-500000">$200k - $500k</option>
+                        <option value="500000-1000000">$500k - $1M</option>
+                        <option value="1000000+">$1M+</option>
+                    </select>
+                    <button class="btn" type="submit"><i class="fa-solid fa-search"></i> Search</button>
+                </form>
+            </div>
+        </section>
+        <section class="section partners">
+            <div class="container">
+                <div class="section-head"><h2 style="font-size:1.05rem; opacity:.9">Trusted by leading partners</h2></div>
+                <div class="logos">
+                    <div class="logo-box">Homely</div>
+                    <div class="logo-box">Skyline</div>
+                    <div class="logo-box">NestCorp</div>
+                    <div class="logo-box">PrimeBuild</div>
+                    <div class="logo-box">UrbanEdge</div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-head">
+                    <h2>What Clients Say</h2>
+                </div>
+                <div class="carousel" id="testimonials">
+                    <div class="slide active"><p>“Found my dream home in a week. Seamless experience!”</p><div class="by">— Alice, San Francisco</div></div>
+                    <div class="slide"><p>“Transparent pricing and great agents. Highly recommend.”</p><div class="by">— Mark, New York</div></div>
+                    <div class="slide"><p>“The best listings and fast responses. 10/10.”</p><div class="by">— Sara, Miami</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="featured">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Featured Listings</h2>
+                    <a class="btn btn-sm btn-ghost" href="properties.html">View All</a>
+                </div>
+                <div class="grid cards" id="featuredGrid">
+                    <!-- Cards injected from JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container metrics">
+                <div class="metric">
+                    <div class="metric-num">1.2k+</div>
+                    <div class="metric-label">Properties</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">450+</div>
+                    <div class="metric-label">Happy Clients</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">35</div>
+                    <div class="metric-label">Expert Agents</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">12</div>
+                    <div class="metric-label">Awards</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container two-col">
+                <div class="two-col-text">
+                    <h2>Why Choose PrimeEstate</h2>
+                    <ul class="checklist">
+                        <li><i class="fa-solid fa-check"></i> Curated premium listings</li>
+                        <li><i class="fa-solid fa-check"></i> Transparent pricing</li>
+                        <li><i class="fa-solid fa-check"></i> End-to-end support</li>
+                        <li><i class="fa-solid fa-check"></i> Verified agents</li>
+                    </ul>
+                    <div class="cta-row">
+                        <a class="btn" href="about.html">Learn More</a>
+                        <a class="btn btn-ghost" href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="two-col-media">
+                    <div class="media-card">
+                        <div class="media-img gradient-box"></div>
+                        <div class="media-caption">Handpicked luxury homes with modern amenities</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head"><h2>Browse by Category</h2><a class="btn btn-sm btn-ghost" href="properties.html">View All</a></div>
+                <div class="grid categories">
+                    <a class="cat-card" href="properties.html?type=Apartment">
+                        <div class="cat-media" style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1200&auto=format&fit=crop');"></div>
+                        <div class="cat-title">Apartments</div>
+                    </a>
+                    <a class="cat-card" href="properties.html?type=Villa">
+                        <div class="cat-media" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f?q=80&w=1200&auto=format&fit=crop');"></div>
+                        <div class="cat-title">Villas</div>
+                    </a>
+                    <a class="cat-card" href="properties.html?type=House">
+                        <div class="cat-media" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop');"></div>
+                        <div class="cat-title">Houses</div>
+                    </a>
+                    <a class="cat-card" href="properties.html?type=Condo">
+                        <div class="cat-media" style="background-image:url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop');"></div>
+                        <div class="cat-title">Condos</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-banner">
+            <div class="container banner">
+                <div class="banner-text">
+                    <h3>Sell or Rent your property faster</h3>
+                    <p>List with PrimeEstate and reach verified buyers and tenants across India.</p>
+                </div>
+                <a class="btn btn-lg" href="contact.html"><i class="fa-solid fa-upload"></i> List Your Property</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="logo footer-logo"><span>Prime</span>Estate</a>
+                <p>Premium real estate marketplace helping you buy, sell, and rent smarter.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="properties.html">All Properties</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@primeestate.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> 123 Market St, San Francisco</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <form class="newsletter" id="newsletterForm">
+                    <input type="email" placeholder="Your email" required>
+                    <button class="btn btn-sm" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">© <span id="year"></span> PrimeEstate. All rights reserved.</div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="favoritesModal" class="fav-modal hidden" aria-hidden="true">
+        <div class="fav-card">
+            <div class="section-head"><h3>Saved Favorites</h3><button class="btn btn-sm btn-ghost" id="favClose">Close</button></div>
+            <div class="grid cards" id="favGrid"></div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
+
+

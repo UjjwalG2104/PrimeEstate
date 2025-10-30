@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "name": "primeestate",
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "landing.html", "use": "@vercel/static" },
+    { "src": "properties.html", "use": "@vercel/static" },
+    { "src": "property.html", "use": "@vercel/static" },
+    { "src": "about.html", "use": "@vercel/static" },
+    { "src": "contact.html", "use": "@vercel/static" },
+    { "src": "dashboard.html", "use": "@vercel/static" },
+    { "src": "styles/**/*", "use": "@vercel/static" },
+    { "src": "scripts/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/landing", "dest": "/landing.html" },
+    { "src": "/properties", "dest": "/properties.html" },
+    { "src": "/property", "dest": "/property.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/dashboard", "dest": "/dashboard.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=600" }
+      ]
+    },
+    {
+      "source": "/(styles|scripts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
+
+

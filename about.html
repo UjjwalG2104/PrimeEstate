@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | PrimeEstate</title>
+  <meta name="description" content="About PrimeEstate: our mission, values, and team.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23e3b341' d='M8 30L32 12l24 18v22a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V30z'/%3E%3Cpath fill='%230b1220' d='M24 52V38h16v14z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span>Prime</span>Estate</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <span id="authSlot"></span>
+        <a href="dashboard.html" class="btn btn-sm btn-ghost"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container two-col">
+        <div class="two-col-text">
+          <h2>Our Story</h2>
+          <p style="color:var(--muted)">We are a team of passionate real estate professionals dedicated to simplifying property transactions. From curated listings to expert guidance, we are committed to building trust through transparency and results.</p>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> 10+ years industry experience</li>
+            <li><i class="fa-solid fa-check"></i> Verified agents and partners</li>
+            <li><i class="fa-solid fa-check"></i> Data-driven market insights</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="properties.html">Explore Properties</a>
+            <a class="btn btn-ghost" href="contact.html">Work With Us</a>
+          </div>
+        </div>
+        <div class="two-col-media">
+          <div class="media-card">
+            <div class="gradient-box"></div>
+            <div class="media-caption">Our mission is to empower smarter real estate decisions.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container metrics">
+        <div class="metric"><div class="metric-num">10+</div><div class="metric-label">Years</div></div>
+        <div class="metric"><div class="metric-num">35</div><div class="metric-label">Agents</div></div>
+        <div class="metric"><div class="metric-num">1.2k+</div><div class="metric-label">Listings</div></div>
+        <div class="metric"><div class="metric-num">450+</div><div class="metric-label">Clients</div></div>
+      </div>
+    </section>
+  </main>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>FAQ</h2></div>
+      <div class="faq" id="faq">
+        <details class="faq-item"><summary>How do I schedule a viewing?</summary><div class="faq-body">Open a property and click “Schedule a Visit”. Fill the form and we’ll confirm.</div></details>
+        <details class="faq-item"><summary>Do you charge buyer fees?</summary><div class="faq-body">No buyer fees. Seller fees vary by package and are disclosed upfront.</div></details>
+        <details class="faq-item"><summary>Can I list my property?</summary><div class="faq-body">Yes. Contact us and our agents will help you list within 24 hours.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo"><span>Prime</span>Estate</a>
+        <p>Premium real estate marketplace helping you buy, sell, and rent smarter.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="properties.html">All Properties</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@primeestate.com</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email" required>
+          <button class="btn btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> PrimeEstate. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="scripts/app.js"></script>
+  <script>
+    document.querySelectorAll('.faq-item summary').forEach(s=>s.addEventListener('click',()=>{
+      // Close others for accordion behavior
+      const d = s.parentElement; document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==d) i.removeAttribute('open'); });
+    }));
+  </script>
+</body>
+</html>
+
+

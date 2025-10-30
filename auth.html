@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Sign Up | PrimeEstate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo"><span>Prime</span>Estate</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <span id="authSlot"></span>
+        <a href="dashboard.html" class="btn btn-sm btn-ghost"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width:520px;">
+      <div class="panel" style="background: var(--card); border:1px solid rgba(255,255,255,0.06); border-radius:.9rem; padding:1rem;">
+        <div class="section-head"><h2>Welcome</h2></div>
+        <div class="tabs" style="display:flex; gap:.6rem; margin-bottom:.6rem;">
+          <button class="btn btn-sm" id="tabSignIn">Sign In</button>
+          <button class="btn btn-sm btn-ghost" id="tabSignUp">Sign Up</button>
+        </div>
+        <form id="formSignIn" class="visit-form">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button class="btn" type="submit">Sign In</button>
+        </form>
+        <form id="formSignUp" class="visit-form hidden">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button class="btn" type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo"><span>Prime</span>Estate</a>
+        <p>Premium real estate marketplace helping you buy, sell, and rent smarter.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="properties.html">All Properties</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-phone"></i> +91 9766499137</li>
+          <li><i class="fa-solid fa-envelope"></i> garudujjwal@gmail.com</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email" required>
+          <button class="btn btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> PrimeEstate. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="scripts/app.js"></script>
+  <script>
+    const tabIn = document.getElementById('tabSignIn');
+    const tabUp = document.getElementById('tabSignUp');
+    const fIn = document.getElementById('formSignIn');
+    const fUp = document.getElementById('formSignUp');
+    tabIn.addEventListener('click', ()=>{ tabIn.classList.remove('btn-ghost'); tabUp.classList.add('btn-ghost'); fIn.classList.remove('hidden'); fUp.classList.add('hidden'); });
+    tabUp.addEventListener('click', ()=>{ tabUp.classList.remove('btn-ghost'); tabIn.classList.add('btn-ghost'); fUp.classList.remove('hidden'); fIn.classList.add('hidden'); });
+    fIn.addEventListener('submit', (e)=>{ e.preventDefault(); const d=new FormData(fIn); const email=d.get('email'); const user=JSON.parse(localStorage.getItem('pe_user')||'null'); if(user && user.email===email){ localStorage.setItem('pe_user', JSON.stringify(user)); showToast('Signed in', 'success'); setTimeout(()=> location.href='index.html', 600); } else { showToast('Account not found. Try Sign Up.', 'danger'); } });
+    fUp.addEventListener('submit', (e)=>{ e.preventDefault(); const d=new FormData(fUp); const user={ name:d.get('name'), email:d.get('email') }; localStorage.setItem('pe_user', JSON.stringify(user)); showToast('Account created', 'success'); setTimeout(()=> location.href='index.html', 600); });
+  </script>
+</body>
+</html>
+
+
