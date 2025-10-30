@@ -12,12 +12,12 @@
     { "src": "styles/**/*", "use": "@vercel/static" },
     { "src": "scripts/**/*", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/landing", "dest": "/landing.html" },
-    { "src": "/properties", "dest": "/properties.html" },
-    { "src": "/property", "dest": "/property.html" },
-    { "src": "/about", "dest": "/about.html" },
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/landing", "destination": "/landing.html" },
+    { "source": "/properties", "destination": "/properties.html" },
+    { "source": "/property", "destination": "/property.html" },
+    { "source": "/about", "destination": "/about.html" },
     { "src": "/contact", "dest": "/contact.html" },
     { "src": "/dashboard", "dest": "/dashboard.html" }
   ],
