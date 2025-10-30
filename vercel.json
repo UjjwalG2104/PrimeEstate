@@ -18,8 +18,8 @@
     { "source": "/properties", "destination": "/properties.html" },
     { "source": "/property", "destination": "/property.html" },
     { "source": "/about", "destination": "/about.html" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/dashboard", "dest": "/dashboard.html" }
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" }
   ],
   "headers": [
     {
